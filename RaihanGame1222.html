@@ -44,6 +44,7 @@
   <input id="Name" placeholder="Your name">
   <input id="Email" type="email" placeholder="Your email">
   <input id="submit" type="submit">
+  <input id="Mountain" placeholder="A moutain you want to explore" style="width:300px;">
 </body>
 
 <script type="module">
@@ -92,6 +93,7 @@ const db = getDatabase(app);
   
 const Name = document.querySelector("#Name") 
 const Email = document.querySelector("#Email")
+const Mountain = document.querySelector("#Mountain")
 document.querySelector('#submit').addEventListener('click', Submit)
 function Submit() {
   const timestamp = buildTimestamp()
@@ -99,10 +101,12 @@ function Submit() {
   set(ref(db, timestamp), {
 	  Name: Name.value,
       email: Email.value,
+	  Mountain: Mountain.value,
   });
 
   Name.value = ""
   Email.value = ""
+  Mountain.value = ""
 }
 
 function buildTimestamp() {
@@ -143,4 +147,5 @@ function addLeadingZero(units) {
   
 
 </script>
+
 
